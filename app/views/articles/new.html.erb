@@ -1,0 +1,20 @@
+<h1>New Article</h1>
+
+<%= form_for @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, size: "60"%>
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "60x12", id: "editor" %>
+  <%= f.submit %>
+<% end %>
+
+<script>
+  $(document).ready ( function(){
+   $('#editor').onChange(function () {
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/javascript");
+    });
+  });​
+
+</script>

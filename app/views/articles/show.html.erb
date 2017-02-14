@@ -1,0 +1,10 @@
+<%require 'kramdown'%>
+
+<h1><%=@article.title %></h1>
+<%= link_to "Delete", article_path(@article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<%= link_to "Update", edit_article_path(@article) %>
+<p>
+<%= raw Kramdown::Document.new(@article.content).to_html%>
+</p>

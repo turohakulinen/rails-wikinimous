@@ -1,0 +1,7 @@
+
+<%@articles.each do |t|%>
+  <%= link_to(t) do %>
+    <h2><%= t.title %></h2>
+  <% end %>
+  <p><%= raw Kramdown::Document.new(t.content[0..200] + ' ...').to_html%></p>
+<%end%>
